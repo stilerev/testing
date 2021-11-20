@@ -2,7 +2,7 @@ const http = require("http");
 const express = require("express");
 const app = express();
 
-const PORT = 3000;
+const PORT = 80;
 
 app.set("view engine", "ejs");
 app.set("views", __dirname + "/views");
