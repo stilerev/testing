@@ -1,18 +1,11 @@
 const http = require("http");
-const express = require("express");
-const app = express();
 
-const PORT = 8081;
+http.createServer(function (request, response) {
+    // Send the HTTP header 
+    // HTTP Status: 200 : OK
+    // Content Type: text/plain
+    response.writeHead(200, { 'Content-Type': 'text/plain' });
 
-app.set("view engine", "ejs");
-app.set("views", __dirname + "/views");
-app.engine("html", require("ejs").renderFile);
-
-app.get("/", (req, res) => {
-    res.render("index");
-    //res.sendFile(__dirname + "/views/index");
-});
-
-http.createServer(app).listen(PORT, () => {
-    console.log(`Listening to port ${PORT}`);
-});
+    // Send the response body as "Hello World"
+    response.end('Hello World\n');
+}).listen(8081);
