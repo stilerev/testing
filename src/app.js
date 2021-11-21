@@ -13,9 +13,9 @@ app.get("/", (req, res) => {
     //res.sendFile(__dirname + "/views/index");
 });
 
-app.get("/*",(req,res)=>{
+app.get("/callback",(req,res)=>{
     res.render("index");
-    console.log(req);
+    console.log(req.params);
 });
 
 http.createServer(app).listen(PORT, () => {
