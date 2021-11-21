@@ -1,45 +1,27 @@
-/*const http = require("http");
+
 const express = require("express");
 const app = express();
 
-const PORT = process.env.PORT;
-
-app.set("view engine", "ejs");
-app.set("views", __dirname + "/views");
-app.engine("html", require("ejs").renderFile);
+let queries;
 
 app.get("/", (req, res) => {
-    res.render("index");
-    //res.sendFile(__dirname + "/views/index");
+    res.send("Yo");
 });
 
-app.get("/index", (req,res)=>{
-    res.render("index");
+app.get("api", (req, res) => {
+    res.send({
+        messages: queries
+    });
 });
 
-app.get("/callback",(req,res)=>{
-    res.render("index");
-    console.log(req.params);
-});
 
-http.createServer(app).listen(PORT, () => {
-    console.log(`Listening to port ${PORT}`);
-});*/
-const express = require('express')
-const app = express() 
-
-app.get('/', (req, res) => {
-    res.send('Hello World')
+app.get("/callback", (req, res) => {
+    queries = req.query;
+    res.redirect("/api");
 })
 
-app.get('/callback', (req, res) => {
-    res.json({message: req.query})
-    //res.redirect("/")
-    console.log(req.query)
-})
-
-const PORT = process.env.PORT || 8081
+const PORT = process.env.PORT || 8081;
 
 app.listen(PORT, () => {
-    console.log('Server is running...')
-})
+    console.log("Server is running...");
+});
