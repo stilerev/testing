@@ -8,7 +8,7 @@ app.get("/", (req, res) => {
     res.send("Yo");
 });
 
-app.get("api", (req, res) => {
+app.get("/api", (req, res) => {
     res.send({
         messages: queries
     });
