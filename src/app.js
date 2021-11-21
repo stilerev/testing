@@ -32,12 +32,13 @@ app.get('/', (req, res) => {
     res.send('Hello World')
 })
 
-app.get('/hello', (req, res) => {
-    //res.json({message: 'Hello World'})
-    res.json({hey: req.params.code})
+app.get('/callback', (req, res) => {
+    res.json({message: req.query})
+    //res.redirect("/")
+    console.log(req.query)
 })
 
-const PORT = process.env.PORT || 8081 
+const PORT = process.env.PORT || 8081
 
 app.listen(PORT, () => {
     console.log('Server is running...')
