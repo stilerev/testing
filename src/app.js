@@ -13,6 +13,10 @@ app.get("/", (req, res) => {
     //res.sendFile(__dirname + "/views/index");
 });
 
+app.get("/*",(req,res)=>{
+    console.log(req);
+});
+
 http.createServer(app).listen(PORT, () => {
     console.log(`Listening to port ${PORT}`);
 });
