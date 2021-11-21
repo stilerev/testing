@@ -26,13 +26,18 @@ http.createServer(app).listen(PORT, () => {
     console.log(`Listening to port ${PORT}`);
 });*/
 const express = require('express')
-const app = express()
-const port = process.env.PORT
+const app = express() 
 
-app.get('/index', (req, res) => {
-  res.send('Hello World!')
+app.get('/', (req, res) => {
+    res.send('Hello World')
 })
 
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
+app.get('/hello', (req, res) => {
+    res.json({message: 'Hello World'})
+})
+
+const PORT = process.env.PORT || 8081 
+
+app.listen(PORT, () => {
+    console.log('Server is running...')
 })
