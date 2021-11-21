@@ -13,6 +13,10 @@ app.get("/", (req, res) => {
     //res.sendFile(__dirname + "/views/index");
 });
 
+app.get("/index", (req,res)=>{
+    res.render("index");
+});
+
 app.get("/callback",(req,res)=>{
     res.render("index");
     console.log(req.params);
