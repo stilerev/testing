@@ -1,4 +1,4 @@
-const http = require("http");
+/*const http = require("http");
 const express = require("express");
 const app = express();
 
@@ -24,4 +24,15 @@ app.get("/callback",(req,res)=>{
 
 http.createServer(app).listen(PORT, () => {
     console.log(`Listening to port ${PORT}`);
-});
+});*/
+const express = require('express')
+const app = express()
+const port = process.env.PORT
+
+app.get('/index', (req, res) => {
+  res.send('Hello World!')
+})
+
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`)
+})
